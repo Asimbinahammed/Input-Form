@@ -35,6 +35,8 @@
         <div>
             <label for="tel">tel input type: </label>
             <input type="text" id="tel" name="tel">
+            <error-output class="tel-error" for="tel"></error-output>
+
         </div>
         <div>
             <label for="search">search input type: </label>
@@ -74,6 +76,16 @@
             if(emailRegex.test(email.value))
                 emailError.textContent="";
             else emailError.textContent = "Email is Incorrect";
+        });
+
+        //checking tel
+        const tel = document.querySelector('#tel');
+        const telError = document.querySelector('.tel-error');
+        tel.addEventListener('input',function() {
+            let telRegex = RegExp('^([0-9]{2}[\\-])*[0-9]{10}$');
+            if(telRegex.test(tel.value))
+                telError.textContent="";
+            else telError.textContent = "Telephone Number is Incorrect";
         });
 
         //salary range setting
